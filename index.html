@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Viel — sites e lojas online para clínicas veterinárias, lojas de animais e distribuidores.">
+<title>Viel Sites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: página de uma coluna, estreita, com lista de trabalhos como "fichas" e uma amostra do rodapé assinado */
+:root {
+  --bg: #f6f7f4;
+  --surface: #ffffff;
+  --ink: #18231f;
+  --muted: #5d6b65;
+  --line: #dfe4df;
+  --accent: #1f6b52;
+  --accent-soft: #e3efe9;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111815; --surface: #18211d; --ink: #e8eee9; --muted: #9aaba3; --line: #2a3530; --accent: #6fcfa8; --accent-soft: #1d3029; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #111815; --surface: #18211d; --ink: #e8eee9; --muted: #9aaba3; --line: #2a3530; --accent: #6fcfa8; --accent-soft: #1d3029; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font: 400 1rem/1.6 var(--body); }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 48px 64px; display: grid; gap: 56px; }
+.demo-tag { justify-self: start; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; color: var(--muted); border: 1px dashed var(--line); border-radius: 6px; padding: 4px 10px; }
+header { display: grid; gap: 14px; }
+.mark { font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 12vw, 5.5rem); line-height: .9; letter-spacing: -.03em; }
+.mark span { color: var(--accent); }
+.lead { font-size: 1.15rem; color: var(--muted); max-width: 52ch; text-wrap: pretty; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 1.45rem; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+section { display: grid; gap: 18px; }
+.label { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; color: var(--accent); }
+.jobs { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.job { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.job h3 { margin: 0; font-size: 1.08rem; font-weight: 600; }
+.job p { margin: 0; color: var(--muted); grid-column: 1 / -1; min-width: 0; }
+.job .kind { font-size: .8rem; color: var(--muted); white-space: nowrap; }
+.job a { color: var(--accent); font-weight: 600; text-decoration: none; font-size: .9rem; grid-column: 1 / -1; }
+.job a:hover, .job a:focus-visible { text-decoration: underline; }
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.service { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 4px; }
+.service strong { font-weight: 600; }
+.service span { color: var(--muted); font-size: .92rem; }
+.contact { background: var(--accent-soft); border-radius: 14px; padding: 24px; display: grid; gap: 10px; }
+.contact p { margin: 0; color: var(--muted); }
+.contact .todo { font-weight: 600; color: var(--ink); }
+.sample { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+.sample .site { padding: 28px 20px; color: var(--muted); font-size: .9rem; text-align: center; }
+.sample footer { border-top: 1px solid var(--line); padding: 14px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: .82rem; color: var(--muted); }
+.sign { color: var(--muted); text-decoration: none; opacity: .75; }
+.sign b { font-weight: 600; color: var(--ink); }
+.sign:hover, .sign:focus-visible { opacity: 1; text-decoration: underline; }
+.note { font-size: .88rem; color: var(--muted); margin: 0; }
+</style>
+<style>body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="mark">Viel<span>.</span></div>
+    <p class="lead">Sites e lojas online para clínicas veterinárias, lojas de animais e distribuidores. Feitos à medida, rápidos no telemóvel e fáceis de gerir no dia a dia.</p>
+  </header>
+
+  <section aria-labelledby="t-trab">
+    <span class="label">Trabalhos</span>
+    <h2 id="t-trab">Projetos em funcionamento</h2>
+    <div class="jobs">
+      <div class="job">
+        <h3>Ração em Casa</h3><span class="kind">Loja online</span>
+        <p>Loja de ração para cães e gatos com envio para Portugal continental, contas de cliente, cupões e painel de encomendas.</p>
+        <a href="https://racaoemcasa.com" target="_blank" rel="noopener">racaoemcasa.com ↗</a>
+      </div>
+      <div class="job">
+        <h3>Ibernop</h3><span class="kind">Portal B2B</span>
+        <p>Área de encomendas para lojas e clínicas: catálogo com mais de 300 produtos, preços por cliente, vendedores por zona e app de gestão.</p>
+      </div>
+      <div class="job">
+        <h3>Centro Veterinário Linda-a-Velha</h3><span class="kind">Site e loja</span>
+        <p>Site da clínica com serviços, equipa, blog e loja, mais um gerador de etiquetas de preço para a loja física.</p>
+        <a href="https://centroveterinariolindaavelha.pt" target="_blank" rel="noopener">centroveterinariolindaavelha.pt ↗</a>
+      </div>
+      <div class="job">
+        <h3>Grupo do Meu Melhor Amigo</h3><span class="kind">Site institucional</span>
+        <p>Site que reúne as clínicas de Pinhal Novo, Linda-a-Velha e Loures.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-serv">
+    <span class="label">O que faço</span>
+    <h2 id="t-serv">Do site simples à loja completa</h2>
+    <div class="services">
+      <div class="service"><strong>Sites</strong><span>Para clínicas e pequenos negócios, com Google e redes sociais ligados.</span></div>
+      <div class="service"><strong>Lojas online</strong><span>Catálogo, carrinho, pagamentos MB WAY e Multibanco, painel de encomendas.</span></div>
+      <div class="service"><strong>Portais para empresas</strong><span>Encomendas entre empresas, preços por cliente e gestão de vendedores.</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-cont" class="contact">
+    <h2 id="t-cont">Pedir orçamento</h2>
+    <p>Fale comigo sobre o seu projeto. Respondo no próprio dia.</p>
+    <p class="todo">[ Aqui entra o teu contacto: WhatsApp e/ou e-mail ]</p>
+  </section>
+
+  <section aria-labelledby="t-amostra">
+    <span class="label">Como fica nos sites</span>
+    <h2 id="t-amostra">A assinatura no rodapé</h2>
+    <div class="sample">
+      <div class="site">… conteúdo do site do cliente …</div>
+      <footer>
+        <span>© 2026 Ração em Casa</span>
+        <a class="sign" href="#">Site por <b>Viel</b></a>
+      </footer>
+    </div>
+    <p class="note">Discreta, cinzenta e pequena. Quem tiver curiosidade carrega e vem parar a esta página.</p>
+  </section>
+</div>
+</body>
+</html>
