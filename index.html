@@ -118,6 +118,16 @@ h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; letter-
 .m-cv .svc div { border-radius: 5px; background: #eaf4f6; height: 26px; position: relative; }
 .m-cv .svc div::before { content: ""; position: absolute; left: 6px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #1a9bb0; }
 
+
+.m-gr { background: #fff; padding-bottom: 12px; }
+.m-gr .head { display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: #002845; color: #fff; font: 700 8.5px var(--display); }
+.m-gr .head .sym { width: 14px; height: 14px; border-radius: 50%; background: #00949c; box-shadow: inset 0 0 0 3px #002845, 0 0 0 1.5px #00949c; }
+.m-gr .head .lk { margin-left: auto; font: 600 7px var(--body); color: #9fd6da; }
+.m-gr .hero3 { background: #eef4f6; color: #002845; font: 800 12px/1.15 var(--display); padding: 16px 10px; text-align: center; }
+.m-gr .units { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 10px 10px 0; }
+.m-gr .units div { border: 1px solid #d3dfe4; border-radius: 6px; padding: 6px; font: 700 7px var(--body); color: #002845; display: grid; gap: 4px; }
+.m-gr .units b { display: block; height: 26px; border-radius: 4px; background: linear-gradient(135deg, #00767d, #00949c); }
+
 /* ---------- Trabalhos ---------- */
 section { padding-block: 88px; }
 .sec-head { display: grid; gap: 10px; max-width: 640px; margin-bottom: 40px; }
@@ -293,11 +303,23 @@ footer { padding-block: 36px 48px; color: var(--muted); font-size: .88rem; displ
           </div>
         </article>
 
-        <article class="card wide" style="grid-template-columns:1fr">
+        <article class="card wide">
+          <div class="shot" style="--bgc:#e4eff1">
+            <div class="screen"><div class="bar"><i></i><i></i><i></i><u>domeumelhoramigo.com</u></div>
+              <div class="m m-gr"><div class="head"><span class="sym"></span>Grupo do meu melhor amigo<span class="lk">Consultórios</span></div>
+                <div class="hero3">O cuidado e saber de quem também os ama.</div>
+                <div class="units"><div><b></b>Pinhal Novo</div><div><b></b>Linda-a-Velha</div><div><b></b>Loures</div></div></div></div>
+          </div>
           <div class="body">
-            <div class="meta"><span class="chip">Site institucional</span></div>
+            <div class="meta"><span class="chip">Site institucional</span><span class="chip">Marcações online</span></div>
             <h3>Grupo do Meu Melhor Amigo</h3>
-            <p>Site que reúne as clínicas de Pinhal Novo, Linda-a-Velha e Loures, com a presença no Google de cada consultório organizada.</p>
+            <p>Site que reúne os consultórios veterinários de Pinhal Novo, Linda-a-Velha e Loures, com página própria para cada unidade.</p>
+            <ul class="feat">
+              <li>Pedidos de marcação que chegam direto ao e-mail do consultório</li>
+              <li>Mapa, horário e contactos de cada unidade</li>
+              <li>Presença no Google organizada</li>
+            </ul>
+            <a class="go" href="https://www.domeumelhoramigo.com" target="_blank" rel="noopener">Visitar domeumelhoramigo.com ↗</a>
           </div>
         </article>
       </div>
