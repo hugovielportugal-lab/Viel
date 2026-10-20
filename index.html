@@ -3,124 +3,361 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Viel Digital — sites e lojas online para clínicas veterinárias, lojas de animais e distribuidores.">
 <title>Viel Digital</title>
+<meta name="description" content="Viel Digital — sites e lojas online para clínicas veterinárias, lojas de animais e distribuidores.">
+<meta property="og:title" content="Viel Digital">
+<meta property="og:description" content="Sites e lojas online para clínicas veterinárias, lojas de animais e distribuidores.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: página de uma coluna, estreita, com lista de trabalhos como "fichas" e uma amostra do rodapé assinado */
+/* Layout: herói escuro com mosaico de "ecrãs" dos projetos; depois trabalhos em fichas com mini-ecrã, processo em 4 passos reais e faixa de contacto */
 :root {
-  --bg: #f6f7f4;
+  --ink: #0f1d1a;
+  --ink-2: #172a25;
+  --paper: #f4f6f3;
   --surface: #ffffff;
-  --ink: #18231f;
-  --muted: #5d6b65;
-  --line: #dfe4df;
-  --accent: #1f6b52;
-  --accent-soft: #e3efe9;
+  --text: #15201d;
+  --muted: #5b6a65;
+  --line: #dde3df;
+  --accent: #3ccf91;
+  --accent-deep: #17865a;
+  --on-ink: #eaf3ef;
+  --on-ink-muted: #9fb4ac;
   --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
   --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --r: 14px;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #111815; --surface: #18211d; --ink: #e8eee9; --muted: #9aaba3; --line: #2a3530; --accent: #6fcfa8; --accent-soft: #1d3029; color-scheme: dark } }
-:root[data-theme="dark"] { --bg: #111815; --surface: #18211d; --ink: #e8eee9; --muted: #9aaba3; --line: #2a3530; --accent: #6fcfa8; --accent-soft: #1d3029; color-scheme: dark }
-body { background: var(--bg); color: var(--ink); font: 400 1rem/1.6 var(--body); }
-.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 48px 64px; display: grid; gap: 56px; }
-.demo-tag { justify-self: start; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; color: var(--muted); border: 1px dashed var(--line); border-radius: 6px; padding: 4px 10px; }
-header { display: grid; gap: 14px; }
-.mark { font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 12vw, 5.5rem); line-height: .9; letter-spacing: -.03em; }
-.mark span { color: var(--accent); }
-.lead { font-size: 1.15rem; color: var(--muted); max-width: 52ch; text-wrap: pretty; }
-h2 { font-family: var(--display); font-weight: 600; font-size: 1.45rem; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
-section { display: grid; gap: 18px; }
-.label { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; color: var(--accent); }
-.jobs { display: grid; gap: 0; border-top: 1px solid var(--line); }
-.job { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-.job h3 { margin: 0; font-size: 1.08rem; font-weight: 600; }
-.job p { margin: 0; color: var(--muted); grid-column: 1 / -1; min-width: 0; }
-.job .kind { font-size: .8rem; color: var(--muted); white-space: nowrap; }
-.job a { color: var(--accent); font-weight: 600; text-decoration: none; font-size: .9rem; grid-column: 1 / -1; }
-.job a:hover, .job a:focus-visible { text-decoration: underline; }
-.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-.service { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 4px; }
-.service strong { font-weight: 600; }
-.service span { color: var(--muted); font-size: .92rem; }
-.contact { background: var(--accent-soft); border-radius: 14px; padding: 24px; display: grid; gap: 10px; }
-.contact p { margin: 0; color: var(--muted); }
-.contact .todo { font-weight: 600; color: var(--ink); }
-.wa { display: inline-block; background: var(--accent); color: var(--bg); text-decoration: none; padding: 12px 20px; border-radius: 999px; font-weight: 600; }
-.wa:hover, .wa:focus-visible { filter: brightness(1.08); outline: 2px solid var(--accent); outline-offset: 2px; }
-.sample { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
-.sample .site { padding: 28px 20px; color: var(--muted); font-size: .9rem; text-align: center; }
-.sample footer { border-top: 1px solid var(--line); padding: 14px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: .82rem; color: var(--muted); }
-.sign { color: var(--muted); text-decoration: none; opacity: .75; }
-.sign b { font-weight: 600; color: var(--ink); }
-.sign:hover, .sign:focus-visible { opacity: 1; text-decoration: underline; }
-.note { font-size: .88rem; color: var(--muted); margin: 0; }
+  --paper: #0c1513; --surface: #13201c; --text: #e6efeb; --muted: #97aaa3; --line: #24342f; --accent-deep: #5fdcaa; color-scheme: dark } }
+:root[data-theme="dark"] { --paper: #0c1513; --surface: #13201c; --text: #e6efeb; --muted: #97aaa3; --line: #24342f; --accent-deep: #5fdcaa; color-scheme: dark }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--text); font: 400 1rem/1.6 var(--body); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; }
+a { color: inherit; }
+.in { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -.02em; }
+.eyebrow { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-deep); }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.btn-wa { background: var(--accent); color: #062418; box-shadow: 0 10px 30px -10px rgba(60,207,145,.7); }
+.btn-wa:hover { transform: translateY(-2px); }
+.btn-ghost { color: var(--on-ink); border: 1.5px solid rgba(234,243,239,.25); }
+.btn-ghost:hover { border-color: var(--on-ink); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+/* ---------- Topo ---------- */
+.hero { background: var(--ink); color: var(--on-ink); position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: -40% -10% auto auto; width: 70vw; height: 70vw; max-width: 900px; max-height: 900px;
+  background: radial-gradient(closest-side, rgba(60,207,145,.18), transparent 70%); pointer-events: none; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; position: relative; }
+.logo { font-family: var(--display); font-weight: 800; font-size: 1.35rem; letter-spacing: -.02em; text-decoration: none; display: inline-flex; align-items: baseline; gap: 6px; }
+.logo i { font-style: normal; color: var(--accent); }
+.nav-links { display: flex; gap: 22px; font-weight: 600; font-size: .95rem; }
+.nav-links a { text-decoration: none; color: var(--on-ink-muted); }
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--on-ink); }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; padding-block: 48px 88px; position: relative; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800; line-height: .98; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p.lead { color: var(--on-ink-muted); font-size: 1.15rem; max-width: 46ch; margin: 22px 0 30px; }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.facts { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(234,243,239,.12); }
+.facts div { display: grid; }
+.facts b { font-family: var(--display); font-size: 1.7rem; font-weight: 700; color: var(--on-ink); font-variant-numeric: tabular-nums; }
+.facts span { font-size: .85rem; color: var(--on-ink-muted); }
+
+/* Mosaico de ecrãs */
+.stack { position: relative; height: 430px; }
+.screen { position: absolute; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06); }
+.screen .bar { height: 22px; background: #e9ecea; display: flex; align-items: center; gap: 5px; padding-left: 9px; }
+.screen .bar i { width: 7px; height: 7px; border-radius: 50%; background: #c9cfcc; }
+.screen .bar u { text-decoration: none; margin-left: 10px; font-size: 9px; color: #7d8a85; background: #fff; border-radius: 4px; padding: 1px 8px; }
+.s1 { width: 78%; left: 0; top: 30px; transform: rotate(-2deg); }
+.s2 { width: 62%; right: 0; top: 0; transform: rotate(3deg); z-index: 2; }
+.s3 { width: 44%; right: 10%; bottom: 0; transform: rotate(-1deg); z-index: 3; }
+@media (prefers-reduced-motion: no-preference) {
+  .screen { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+  .s2 { animation-delay: .12s; } .s3 { animation-delay: .24s; }
+  @keyframes rise { from { opacity: .4; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
+}
+
+/* Mini-ecrãs (desenhados em CSS, nas cores de cada projeto) */
+.m { font-family: var(--body); }
+.m-rc { background: #fbf7ee; padding: 0 0 12px; }
+.m-rc .top { background: #1f3b2c; color: #fff; font-size: 8px; padding: 4px 10px; }
+.m-rc .head { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; background: #fff; font: 800 11px var(--display); color: #1f3b2c; }
+.m-rc .head span { font: 600 8px var(--body); color: #1f3b2c; border: 1px solid #e3dccb; border-radius: 99px; padding: 2px 8px; }
+.m-rc .heroband { background: #1f3b2c; color: #fff; padding: 14px 10px; font: 800 13px/1.1 var(--display); }
+.m-rc .heroband small { display: block; font: 400 7.5px var(--body); color: #c9d6cd; margin-top: 4px; }
+.m-rc .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 10px 10px 0; }
+.m-rc .tile { background: #fff; border: 1px solid #ece4d3; border-radius: 6px; padding: 5px; }
+.m-rc .tile b { display: block; height: 34px; border-radius: 4px; background: linear-gradient(160deg, #efe7d6, #f7f2e7); position: relative; }
+.m-rc .tile b::after { content: ""; position: absolute; left: 50%; top: 5px; width: 16px; height: 24px; translate: -50% 0; border-radius: 2px; background: var(--c, #d63b3b); }
+.m-rc .tile em { display: block; font: 700 7px var(--body); color: #1f3b2c; margin-top: 4px; font-style: normal; }
+
+.m-ib { display: grid; grid-template-columns: 52px 1fr; height: 200px; background: #f3f2ee; }
+.m-ib .side { background: #13212c; padding: 8px 6px; display: grid; align-content: start; gap: 6px; }
+.m-ib .side b { font: 800 7px var(--display); color: #fff; letter-spacing: .08em; }
+.m-ib .side i { height: 6px; border-radius: 3px; background: rgba(255,255,255,.18); }
+.m-ib .side i:first-of-type { background: #c8a24a; }
+.m-ib .main { padding: 8px; display: grid; gap: 7px; align-content: start; }
+.m-ib .banner { height: 46px; border-radius: 6px; background: linear-gradient(110deg, #22313b 0 55%, #c8a24a 55% 100%); color: #fff; font: 800 9px var(--display); padding: 7px; }
+.m-ib .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+.m-ib .row div { height: 46px; border-radius: 6px; background: #fff; border: 1px solid #e3e0d8; position: relative; }
+.m-ib .row div::after { content: ""; position: absolute; left: 6px; right: 6px; bottom: 6px; height: 4px; border-radius: 2px; background: #d9d5ca; }
+.m-ib .cart { justify-self: end; font: 700 7px var(--body); color: #fff; background: #13212c; border-radius: 99px; padding: 3px 9px; }
+
+.m-cv { background: #fff; }
+.m-cv .head { display: flex; justify-content: space-between; padding: 7px 9px; font: 800 9px var(--display); color: #10325a; }
+.m-cv .head span { background: #10325a; color: #fff; font: 700 7px var(--body); border-radius: 99px; padding: 2px 7px; }
+.m-cv .hero2 { background: linear-gradient(135deg, #10325a, #1a6e86); color: #fff; padding: 12px 9px; font: 800 10px/1.15 var(--display); }
+.m-cv .hero2 small { display: block; font: 400 7px var(--body); opacity: .8; margin-top: 3px; }
+.m-cv .svc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 8px 9px 10px; }
+.m-cv .svc div { border-radius: 5px; background: #eaf4f6; height: 26px; position: relative; }
+.m-cv .svc div::before { content: ""; position: absolute; left: 6px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #1a9bb0; }
+
+/* ---------- Trabalhos ---------- */
+section { padding-block: 88px; }
+.sec-head { display: grid; gap: 10px; max-width: 640px; margin-bottom: 40px; }
+.sec-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); font-weight: 700; line-height: 1.05; }
+.sec-head p { color: var(--muted); margin: 0; font-size: 1.05rem; }
+.work { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; transition: transform .2s ease, box-shadow .2s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -28px rgba(15,29,26,.45); }
+.card .shot { padding: 26px 26px 0; background: var(--bgc); display: flex; align-items: flex-end; justify-content: center; min-height: 230px; }
+.card .shot .screen { position: static; width: 100%; max-width: 400px; transform: none; border-radius: 10px 10px 0 0; animation: none; box-shadow: 0 -10px 40px -18px rgba(0,0,0,.4); }
+.card .body { padding: 22px 24px 26px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.card .meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: var(--accent-deep); background: color-mix(in srgb, var(--accent) 14%, transparent); border-radius: 99px; padding: 3px 10px; }
+.card h3 { font-size: 1.4rem; font-weight: 700; }
+.card p { margin: 0; color: var(--muted); }
+.card a.go { font-weight: 700; color: var(--accent-deep); text-decoration: none; margin-top: 6px; justify-self: start; }
+.card a.go:hover, .card a.go:focus-visible { text-decoration: underline; }
+.card.wide { grid-column: 1 / -1; grid-template-columns: 1.1fr 1fr; grid-template-rows: none; }
+.card.wide .shot { min-height: 280px; }
+.feat { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 6px; }
+.feat li { display: flex; gap: 8px; color: var(--text); font-size: .95rem; }
+.feat li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-top: .55em; flex: none; }
+
+/* ---------- Processo ---------- */
+.process { background: var(--surface); border-block: 1px solid var(--line); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: s; }
+.step { display: grid; gap: 8px; align-content: start; }
+.step::before { counter-increment: s; content: counter(s); font: 800 2.6rem/1 var(--display); color: transparent; -webkit-text-stroke: 1.5px var(--accent-deep); }
+.step h3 { font-size: 1.15rem; font-weight: 700; }
+.step p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+/* ---------- Serviços ---------- */
+.svcs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+.svc { background: var(--surface); padding: 28px; display: grid; gap: 10px; align-content: start; }
+.svc h3 { font-size: 1.25rem; font-weight: 700; }
+.svc p { margin: 0; color: var(--muted); }
+.svc .for { font-size: .85rem; font-weight: 600; color: var(--text); }
+
+/* ---------- Contacto ---------- */
+.cta { background: var(--ink); color: var(--on-ink); border-radius: 28px; padding: 56px 48px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center; position: relative; overflow: hidden; }
+.cta::after { content: ""; position: absolute; right: -120px; bottom: -160px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(closest-side, rgba(60,207,145,.25), transparent); }
+.cta h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); font-weight: 800; line-height: 1.02; }
+.cta p { color: var(--on-ink-muted); margin: 12px 0 0; }
+.cta .act { display: grid; gap: 12px; justify-items: start; position: relative; z-index: 1; }
+.cta .num { font-family: var(--display); font-size: 1.5rem; font-weight: 700; letter-spacing: .02em; user-select: all; font-variant-numeric: tabular-nums; }
+
+footer { padding-block: 36px 48px; color: var(--muted); font-size: .88rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+/* ---------- Telemóvel ---------- */
+@media (max-width: 880px) {
+  .hero-grid { grid-template-columns: 1fr; padding-block: 24px 56px; gap: 36px; }
+  .stack { height: 320px; }
+  .work { grid-template-columns: 1fr; }
+  .card.wide { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .svcs { grid-template-columns: 1fr; }
+  .cta { grid-template-columns: 1fr; padding: 40px 26px; }
+  section { padding-block: 64px; }
+}
+@media (max-width: 520px) {
+  .nav-links { display: none; }
+  .stack { height: 250px; }
+  .s3 { width: 56%; right: 0; }
+  .steps { grid-template-columns: 1fr; }
+  .card .shot { padding: 18px 18px 0; min-height: 0; }
+}
 </style>
-<style>body{margin:0}img{max-width:100%}</style>
 </head>
 <body>
 
-<div class="wrap">
+<header class="hero">
+  <div class="in">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#">Viel <i>Digital</i></a>
+      <div class="nav-links">
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#como">Como trabalho</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
 
-  <header>
-    <div class="mark">Viel <span>Digital</span></div>
-    <p class="lead">Sites e lojas online para clínicas veterinárias, lojas de animais e distribuidores. Feitos à medida, rápidos no telemóvel e fáceis de gerir no dia a dia.</p>
-  </header>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Sites · Lojas online · Portais B2B</span>
+        <h1>Sites para quem cuida de <em>animais</em>.</h1>
+        <p class="lead">Clínicas veterinárias, lojas de animais e distribuidores. Faço sites e lojas online à medida, rápidos no telemóvel e fáceis de gerir no dia a dia.</p>
+        <div class="ctas">
+          <a class="btn btn-wa" href="https://wa.me/351919247282?text=Ol%C3%A1%20Hugo%2C%20vi%20o%20teu%20trabalho%20e%20queria%20um%20or%C3%A7amento%20para%20um%20site." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.2.3-.1.5.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+            Pedir orçamento
+          </a>
+          <a class="btn btn-ghost" href="#trabalhos">Ver trabalhos</a>
+        </div>
+        <div class="facts">
+          <div><b>4</b><span>projetos no ar</span></div>
+          <div><b>300+</b><span>produtos em catálogo</span></div>
+          <div><b>100%</b><span>pensado para telemóvel</span></div>
+        </div>
+      </div>
 
-  <section aria-labelledby="t-trab">
-    <span class="label">Trabalhos</span>
-    <h2 id="t-trab">Projetos em funcionamento</h2>
-    <div class="jobs">
-      <div class="job">
-        <h3>Ração em Casa</h3><span class="kind">Loja online</span>
-        <p>Loja de ração para cães e gatos com envio para Portugal continental, contas de cliente, cupões e painel de encomendas.</p>
-        <a href="https://racaoemcasa.com" target="_blank" rel="noopener">racaoemcasa.com ↗</a>
+      <div class="stack" aria-hidden="true">
+        <div class="screen s1"><div class="bar"><i></i><i></i><i></i><u>ibernop · área de cliente</u></div>
+          <div class="m m-ib"><div class="side"><b>IBERNOP</b><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="main"><div class="banner">OWNAT CARE</div><div class="row"><div></div><div></div><div></div><div></div></div><span class="cart">Carrinho · 12</span></div></div>
+        </div>
+        <div class="screen s2"><div class="bar"><i></i><i></i><i></i><u>racaoemcasa.com</u></div>
+          <div class="m m-rc"><div class="top">Envios para Portugal continental</div><div class="head">Ração em Casa <span>Entrar</span></div>
+            <div class="heroband">Rações de confiança, entregues em sua casa<small>Pague por MB WAY ou Multibanco</small></div>
+            <div class="tiles"><div class="tile"><b style="--c:#d63b3b"></b><em>Cão</em></div><div class="tile"><b style="--c:#8a9aa6"></b><em>Gato</em></div><div class="tile"><b style="--c:#6b4f3a"></b><em>Veterinárias</em></div></div></div>
+        </div>
+        <div class="screen s3"><div class="bar"><i></i><i></i><i></i><u>centroveterinario…pt</u></div>
+          <div class="m m-cv"><div class="head">CV Linda-a-Velha <span>Marcar</span></div><div class="hero2">Cuidamos de quem ama<small>Consultas · Vacinas · Cirurgia</small></div><div class="svc"><div></div><div></div><div></div></div></div>
+        </div>
       </div>
-      <div class="job">
-        <h3>Ibernop</h3><span class="kind">Portal B2B</span>
-        <p>Área de encomendas para lojas e clínicas: catálogo com mais de 300 produtos, preços por cliente, vendedores por zona e app de gestão.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="trabalhos">
+    <div class="in">
+      <div class="sec-head">
+        <span class="eyebrow">Trabalhos</span>
+        <h2>Projetos a funcionar, todos os dias</h2>
+        <p>Cada projeto foi feito à medida do negócio: quem compra, como paga e quem trata da encomenda.</p>
       </div>
-      <div class="job">
-        <h3>Centro Veterinário Linda-a-Velha</h3><span class="kind">Site e loja</span>
-        <p>Site da clínica com serviços, equipa, blog e loja, mais um gerador de etiquetas de preço para a loja física.</p>
-        <a href="https://centroveterinariolindaavelha.pt" target="_blank" rel="noopener">centroveterinariolindaavelha.pt ↗</a>
-      </div>
-      <div class="job">
-        <h3>Grupo do Meu Melhor Amigo</h3><span class="kind">Site institucional</span>
-        <p>Site que reúne as clínicas de Pinhal Novo, Linda-a-Velha e Loures.</p>
+
+      <div class="work">
+        <article class="card wide">
+          <div class="shot" style="--bgc:#e6efe9">
+            <div class="screen"><div class="bar"><i></i><i></i><i></i><u>ibernop · área de cliente</u></div>
+              <div class="m m-ib"><div class="side"><b>IBERNOP</b><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="main"><div class="banner">OWNAT CARE</div><div class="row"><div></div><div></div><div></div><div></div></div><span class="cart">Carrinho · 12</span></div></div></div>
+          </div>
+          <div class="body">
+            <div class="meta"><span class="chip">Portal B2B</span><span class="chip">App de gestão</span></div>
+            <h3>Ibernop</h3>
+            <p>Área de encomendas para lojas e clínicas clientes de um distribuidor de produtos para animais.</p>
+            <ul class="feat">
+              <li>Catálogo com mais de 300 produtos, por espécie e gama</li>
+              <li>Preço e desconto próprios para cada cliente</li>
+              <li>Encomenda vai direta ao vendedor da zona</li>
+              <li>Painel de gestão com clientes, stock e cópias de segurança</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="shot" style="--bgc:#f3ecdc">
+            <div class="screen"><div class="bar"><i></i><i></i><i></i><u>racaoemcasa.com</u></div>
+              <div class="m m-rc"><div class="top">Envios para Portugal continental</div><div class="head">Ração em Casa <span>Entrar</span></div>
+                <div class="heroband">Rações de confiança, entregues em sua casa<small>Pague por MB WAY ou Multibanco</small></div>
+                <div class="tiles"><div class="tile"><b style="--c:#d63b3b"></b><em>Cão</em></div><div class="tile"><b style="--c:#8a9aa6"></b><em>Gato</em></div><div class="tile"><b style="--c:#6b4f3a"></b><em>Veterinárias</em></div></div></div></div>
+          </div>
+          <div class="body">
+            <div class="meta"><span class="chip">Loja online</span></div>
+            <h3>Ração em Casa</h3>
+            <p>Loja de ração para cães e gatos com envio para todo o continente, contas de cliente, cupões e painel de encomendas.</p>
+            <a class="go" href="https://racaoemcasa.com" target="_blank" rel="noopener">Visitar racaoemcasa.com ↗</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="shot" style="--bgc:#e2eef3">
+            <div class="screen"><div class="bar"><i></i><i></i><i></i><u>centroveterinariolindaavelha.pt</u></div>
+              <div class="m m-cv"><div class="head">CV Linda-a-Velha <span>Marcar</span></div><div class="hero2">Cuidamos de quem ama<small>Consultas · Vacinas · Cirurgia</small></div><div class="svc"><div></div><div></div><div></div></div></div></div>
+          </div>
+          <div class="body">
+            <div class="meta"><span class="chip">Site e loja</span><span class="chip">Etiquetas de preço</span></div>
+            <h3>Centro Veterinário Linda-a-Velha</h3>
+            <p>Site da clínica com serviços, equipa e blog, loja online e um gerador de etiquetas de preço para a loja física.</p>
+            <a class="go" href="https://centroveterinariolindaavelha.pt" target="_blank" rel="noopener">Visitar o site ↗</a>
+          </div>
+        </article>
+
+        <article class="card wide" style="grid-template-columns:1fr">
+          <div class="body">
+            <div class="meta"><span class="chip">Site institucional</span></div>
+            <h3>Grupo do Meu Melhor Amigo</h3>
+            <p>Site que reúne as clínicas de Pinhal Novo, Linda-a-Velha e Loures, com a presença no Google de cada consultório organizada.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section aria-labelledby="t-serv">
-    <span class="label">O que faço</span>
-    <h2 id="t-serv">Do site simples à loja completa</h2>
-    <div class="services">
-      <div class="service"><strong>Sites</strong><span>Para clínicas e pequenos negócios, com Google e redes sociais ligados.</span></div>
-      <div class="service"><strong>Lojas online</strong><span>Catálogo, carrinho, pagamentos MB WAY e Multibanco, painel de encomendas.</span></div>
-      <div class="service"><strong>Portais para empresas</strong><span>Encomendas entre empresas, preços por cliente e gestão de vendedores.</span></div>
+  <section id="como" class="process">
+    <div class="in">
+      <div class="sec-head">
+        <span class="eyebrow">Como trabalho</span>
+        <h2>Do primeiro contacto ao site no ar</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Conversa</h3><p>Falamos por WhatsApp ou em pessoa sobre o negócio, os clientes e o que tem de funcionar.</p></div>
+        <div class="step"><h3>Proposta</h3><p>Recebe um orçamento fechado e uma primeira versão para ver como fica.</p></div>
+        <div class="step"><h3>Construção</h3><p>Ajustamos juntos até ficar certo, testado no telemóvel e no computador.</p></div>
+        <div class="step"><h3>No ar</h3><p>Publico no seu domínio e explico como gerir. Continuo disponível para mudanças.</p></div>
+      </div>
     </div>
   </section>
 
-  <section aria-labelledby="t-cont" class="contact">
-    <h2 id="t-cont">Pedir orçamento</h2>
-    <p>Fale comigo sobre o seu projeto. Respondo no próprio dia.</p>
-    <p class="todo"><a class="wa" href="https://wa.me/351919247282?text=Ol%C3%A1%20Hugo%2C%20vi%20o%20teu%20trabalho%20e%20queria%20um%20or%C3%A7amento%20para%20um%20site." target="_blank" rel="noopener">Falar no WhatsApp · 919 247 282</a></p>
+  <section>
+    <div class="in">
+      <div class="sec-head">
+        <span class="eyebrow">Serviços</span>
+        <h2>Do site simples à loja completa</h2>
+      </div>
+      <div class="svcs">
+        <div class="svc"><h3>Sites</h3><p>Apresentação, serviços, equipa, horários e contactos, ligados ao Google e às redes sociais.</p><span class="for">Para clínicas e pequenos negócios</span></div>
+        <div class="svc"><h3>Lojas online</h3><p>Catálogo, carrinho, pagamentos MB WAY e Multibanco, envios e painel de encomendas.</p><span class="for">Para lojas de animais</span></div>
+        <div class="svc"><h3>Portais B2B</h3><p>Encomendas entre empresas, preços por cliente, vendedores por zona e app de gestão.</p><span class="for">Para distribuidores</span></div>
+      </div>
+    </div>
   </section>
 
-  <section aria-labelledby="t-amostra">
-    <span class="label">Como fica nos sites</span>
-    <h2 id="t-amostra">A assinatura no rodapé</h2>
-    <div class="sample">
-      <div class="site">… conteúdo do site do cliente …</div>
-      <footer>
-        <span>© 2026 Ração em Casa</span>
-        <a class="sign" href="#">Site por <b>Viel Digital</b></a>
-      </footer>
+  <section id="contacto" style="padding-top:0">
+    <div class="in">
+      <div class="cta">
+        <div>
+          <h2>Tem um projeto em mente?</h2>
+          <p>Conte-me o que precisa. Respondo no próprio dia, com uma ideia de preço e prazo.</p>
+        </div>
+        <div class="act">
+          <a class="btn btn-wa" href="https://wa.me/351919247282?text=Ol%C3%A1%20Hugo%2C%20vi%20o%20teu%20trabalho%20e%20queria%20um%20or%C3%A7amento%20para%20um%20site." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.2.3-.1.5.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <span class="num">919 247 282</span>
+        </div>
+      </div>
     </div>
-    <p class="note">Discreta, cinzenta e pequena. Quem tiver curiosidade carrega e vem parar a esta página.</p>
   </section>
+</main>
+
+<div class="in">
+  <footer>
+    <span>© 2026 Viel Digital · Hugo Viel</span>
+    <span>Lisboa, Portugal</span>
+  </footer>
 </div>
+
 </body>
 </html>
